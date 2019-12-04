@@ -14,6 +14,7 @@ import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -79,6 +80,14 @@ private static final Logger logger = LoggerFactory.getLogger(MascotaController.c
 		
 		return mascota;
 	}
+	
+	@DeleteMapping("/mascota/eliminar/{id}")
+    public ResponseEntity<?> deleteEnfermedad(@PathVariable Long id) {
+       
+		mascotaService.deleteById(id);
+
+        return ResponseEntity.ok().build();
+    }
 
 	
 	
